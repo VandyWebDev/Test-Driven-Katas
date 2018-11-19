@@ -4,18 +4,20 @@ function wrap (aString, maxColNum) {
   let newString = '';
 
   let arr = aString.split(' ');
+  let line = '';
   for (let i = 0; i < arr.length; i++) {
-    let line = '';
-    while (line.length < maxColNum) {
-      if (arr[i].length + line.length <= maxColNum) {
-        line += arr[i] + " ";
+    if (arr[i].length + line.length <= maxColNum) {
+      line += arr[i] + " " ;
+    } else {
+      line += '\n';
+      newString += line;
+      line = arr[i] + " ";
+      if (i === arr.length - 1) {
+        newString += arr[i];
       }
-      else break;
     }
-    line += '\n';
-    newString += line;
   }
-  
+
   console.log('newstring is', newString);
   return newString;
 }
