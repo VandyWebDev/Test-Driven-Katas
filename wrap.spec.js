@@ -8,4 +8,7 @@ describe ('wrap', () => {
   it('Returns empty string if empty string was provided', () => {
     expect(wrap("", 10)).to.equal("");
   });
+  it('breaks a string with three letters into column length given', () => {
+    expect(wrap("a b c", 1)).to.equal("a \nb \nc \n");
+  })
 })
